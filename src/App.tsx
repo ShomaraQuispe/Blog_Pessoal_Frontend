@@ -1,14 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './contexts/Authcontext';
 
-import Home from './components/pages/home/Home';
-import Login from './components/pages/login/Login';
+import Home from './pages/home/Home';
+import Login from './pages/login/Login';
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
-import Cadastro from './components/pages/cadastro/Cadastro';
+import Cadastro from './pages/cadastro/Cadastro';
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <BrowserRouter>
         <Navbar />
           <div className='min-h-[80vh]'>
@@ -21,7 +22,7 @@ function App() {
           </div>  
         <Footer />
       </BrowserRouter>
-    </>
+    </ AuthProvider>
   );
 }
 
