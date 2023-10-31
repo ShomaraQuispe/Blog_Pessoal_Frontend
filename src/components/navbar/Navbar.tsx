@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { SignOut } from '@phosphor-icons/react'
 
 import { AuthContext } from '../../contexts/Authcontext'
 
@@ -22,10 +23,10 @@ function Navbar() {
 
                     <div className='flex gap-4'>
                         Postagens
-                        Temas
-                        Cadastrar tema
+                        <Link to='/temas' className='hover:underline'>Temas</Link>
+                        <Link to='/cadastroTema' className='hover:underline'>Cadastrar Tema</Link>
                         Perfil
-                        <Link to='' onClick={logout} className='hover:underline'>Sair</Link>
+                        <Link to='' onClick={logout} className='hover:underline'><SignOut size={32} color="#6122d5" weight="duotone" /></Link>
                     </div>
                 </div>
             </div>
