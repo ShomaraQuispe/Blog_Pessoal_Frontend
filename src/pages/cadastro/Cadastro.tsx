@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import { toastAlerta } from '../../utils/toastAlerta'
 import { RotatingLines } from 'react-loader-spinner'
 import { useNavigate } from 'react-router-dom'
 
@@ -47,20 +48,20 @@ function Cadastro() {
     e.preventDefault()
 
     if (confirmaSenha === usuario.senha && usuario.senha.length >= 8) {
-      setIsLoading(true)
+        setIsLoading(true)
 
-      try {
-        await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario)
-        alert('Usuário cadastrado com sucesso')
+        try {
+            await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario)
+            toastAlerta('Usuário cadastrado com sucesso', "sucesso")
 
-      } catch (error) {
-        alert('Erro ao cadastrar o Usuário')
-      }
+        } catch (error) {
+            toastAlerta('Erro ao cadastrar o Usuário', "erro")
+        }
 
     } else {
-      alert('Dados inconsistentes. Verifique as informações de cadastro.')
-      setUsuario({ ...usuario, senha: "" })
-      setConfirmaSenha("")
+        toastAlerta('Erro ao cadastrar o Usuário', "erro")
+        setUsuario({ ...usuario, senha: "" })
+        setConfirmaSenha("")
     }
 
     setIsLoading(false)
