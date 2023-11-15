@@ -119,14 +119,15 @@ function FormularioTema() {
                         type="text"
                         placeholder="Descreva aqui seu tema"
                         name='descricao'
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="border border-black rounded p-2"
                         value={tema.descricao}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
+
                 <button
-                    className="rounded text-slate-100 bg-indigo-400 
-                    hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center" type="submit">
+                    className=" rounded-full ... px-10 bg-[#EB6A15] text-white hover:bg-[#FB8D3B]
+                     w-1/2 py-2 mx-auto flex justify-center" type="submit">
 
                     {isLoading ?
                         <RotatingLines
